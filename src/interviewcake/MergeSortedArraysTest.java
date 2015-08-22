@@ -15,7 +15,8 @@ public class MergeSortedArraysTest {
 
 		int[] result = mergeSortedArrays.mergeArrays(newArray, sortedArray);
 		assertArrayEquals(new int[]{1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19}, result);
-	
+		int[] result2 = mergeSortedArrays.mergeArrays2(newArray, sortedArray);
+		assertArrayEquals(new int[]{1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19}, result2);
 	}
 
 }
