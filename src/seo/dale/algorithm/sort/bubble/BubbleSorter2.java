@@ -1,4 +1,4 @@
-package seo.dale.algorithm.sort;
+package seo.dale.algorithm.sort.bubble;
 
 /**
  * BubleSorter1 보다 비효율적...
