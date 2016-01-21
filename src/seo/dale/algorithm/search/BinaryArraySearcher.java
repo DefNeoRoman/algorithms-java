@@ -1,6 +1,6 @@
 package seo.dale.algorithm.search;
 
-public class BinarySearcher {
+public class BinaryArraySearcher {
 	
 	public static int loopSearch(int[] arr, int target) {
 		int low = 0;
