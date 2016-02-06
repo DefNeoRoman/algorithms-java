@@ -13,6 +13,5 @@ buildNumber.properties
 .settings/
 
 # IntelliJ IDEA
-*.iml
 .idea/
 .DS_Store
