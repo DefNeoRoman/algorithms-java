@@ -2,17 +2,14 @@ package seo.dale.algorithm.fibonacci;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
 public class Fibonacci {
 
     /**
-     * 1¿¡¼­ n±îÁöÀÇ ÇÇº¸³ªÄ¡ ¼ö¿­À» ¹İÈ¯ÇÏ´Â ¸Ş¼­µå¸¦ ÀÛ¼ºÇÏ¶ó
+     * 1ì—ì„œ nê¹Œì§€ì˜ í”¼ë³´ë‚˜ì¹˜ ìˆ˜ì—´ì„ ë°˜í™˜í•˜ëŠ” ë©”ì„œë“œë¥¼ ì‘ì„±í•˜ë¼.
      */
     public static List<Integer> fibonacci(int n) {
         if (n < 0) {
@@ -52,7 +49,7 @@ public class Fibonacci {
     }
 
     /**
-     * ÇÇº¸³ªÄ¡ ¼ö¿­ÀÇ n¹øÂ° °ªÀ» ¹İÈ¯ÇÏ´Â ¸Ş¼­µå¸¦ ÀÛ¼ºÇÏ¶ó
+     * í”¼ë³´ë‚˜ì¹˜ ìˆ˜ì—´ì˜ në²ˆì§¸ ê°’ì„ ë°˜í™˜í•˜ëŠ” ë©”ì„œë“œë¥¼ ì‘ì„±í•˜ë¼.
      */
     public static int fibN_iterative(int n) {
         if (n <= 0) {
@@ -79,7 +76,7 @@ public class Fibonacci {
     }
 
     @Test
-    public void testFibN() {
+    public void testFibN_iterative() {
         assertEquals(0, fibN_iterative(1));
         assertEquals(1, fibN_iterative(2));
         assertEquals(1, fibN_iterative(3));
@@ -88,6 +85,60 @@ public class Fibonacci {
         assertEquals(5, fibN_iterative(6));
         assertEquals(8, fibN_iterative(7));
         assertEquals(13, fibN_iterative(8));
+    }
+
+    public static int fibN_recursive(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("n must not be less than zero.");
+        }
+
+        if (n == 1) {
+            return 0;
+        }
+
+        if (n == 2) {
+            return 1;
+        }
+
+        System.out.printf("fibN_recursive(%d) + fibN_recursive(%s)\n", n - 2, n - 1);
+        return fibN_recursive(n - 2) + fibN_recursive(n - 1);
+    }
+
+    private static Map<Integer, Integer> fibCache = new HashMap<>();
+
+    public static int fibN_recursive_cache(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("n must not be less than zero.");
+        }
+
+        fibCache.put(1, 0);
+        fibCache.put(2, 1);
+
+        return fibN_recursive_cache_internal(n);
+    }
+
+    public static int fibN_recursive_cache_internal(int n) {
+        if (fibCache.containsKey(n)) {
+            return fibCache.get(n);
+        }
+
+        System.out.printf("fibN_recursive_cache_internal(%d) + fibN_recursive_cache_internal(%d)\n", n - 2, n - 1);
+        int value = fibN_recursive_cache_internal(n - 2) + fibN_recursive_cache_internal(n - 1);
+        fibCache.put(n, value);
+        return value;
+    }
+
+    @Test
+    public void testFibN_recursive() {
+//        assertEquals(0, fibN_recursive(1));
+//        assertEquals(1, fibN_recursive(2));
+//        assertEquals(1, fibN_recursive(3));
+//        assertEquals(2, fibN_recursive(4));
+//        assertEquals(3, fibN_recursive(5));
+//        assertEquals(5, fibN_recursive(6));
+//        assertEquals(8, fibN_recursive(7));
+        assertEquals(13, fibN_recursive(8));
+        assertEquals(13, fibN_recursive_cache(8));
     }
 
 }
