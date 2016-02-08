@@ -2,6 +2,7 @@ package seo.dale.algorithm.palindrom;
 
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class Palindrome {
@@ -33,11 +34,20 @@ public class Palindrome {
         return true;
     }
 
+    public static boolean strictPalindrome(final String s) {
+        String reversed = new StringBuilder(s).reverse().toString();
+        return s.equals(reversed);
+    }
+
     @Test
     public void test() {
         assertTrue(isPalindrome("eve"));
         assertTrue(isPalindrome("level"));
         assertTrue(isPalindrome("top spot"));
+
+        assertTrue(strictPalindrome("eve"));
+        assertTrue(strictPalindrome("level"));
+        assertFalse(strictPalindrome("top spot"));
     }
 
 }
