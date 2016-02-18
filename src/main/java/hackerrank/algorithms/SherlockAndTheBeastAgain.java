@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * https://www.hackerrank.com/challenges/sherlock-and-the-beast
  */
-public class SherlockAndTheBeast {
+public class SherlockAndTheBeastAgain {
 
 	public static long getlargestDecentNumber(int numOfDigits) {
 		int[] combination = getFiveThreeCombination(numOfDigits);
@@ -20,19 +20,18 @@ public class SherlockAndTheBeast {
 	}
 
 	private static int[] getFiveThreeCombination(int numOfDigits) {
-		int numOfFives = numOfDigits - (numOfDigits % 3);
-		int numOfThrees = numOfDigits - numOfFives;
+		int numOfFives = numOfDigits;
 
-		while (numOfFives >= 0) {
-			if (numOfFives % 3 == 0 && numOfThrees % 5 == 0) {
-				return new int[]{numOfFives, numOfThrees};
-			}
-
-			numOfFives -= 3;
-			numOfThrees = numOfDigits - numOfFives;
+		while (numOfFives >= 0 && (numOfFives % 3) != 0) {
+			numOfFives -= 5;
 		}
 
-		return null;
+		if (numOfFives < 0) {
+			return null;
+		} else {
+			int numOfThrees = numOfDigits - numOfFives;
+			return new int[]{numOfFives, numOfThrees};
+		}
 	}
 
 	private static long buildLargetNumber(int numOfFives, int numOfThrees) {
