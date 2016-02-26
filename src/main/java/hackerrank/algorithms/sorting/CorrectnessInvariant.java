@@ -7,7 +7,7 @@ import java.util.Scanner;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * @author 서대영/Store기술개발팀/SKP
+ * https://www.hackerrank.com/challenges/correctness-invariant
  */
 public class CorrectnessInvariant {
 

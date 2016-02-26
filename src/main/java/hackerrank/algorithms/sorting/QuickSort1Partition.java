@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * @author 서대영/Store기술개발팀/SKP
+ * https://www.hackerrank.com/challenges/quicksort1
  */
 public class QuickSort1Partition {
 
