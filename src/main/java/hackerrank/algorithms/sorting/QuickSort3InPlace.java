@@ -26,8 +26,7 @@ public class QuickSort3InPlace {
 		int pivot = arr[hi];
 		int pivotIdx = lo;
 		for (int i = lo; i < hi; i++) {
-			int current = arr[i];
-			if (current < pivot) {
+			if (arr[i] < pivot) {
 				swap(arr, pivotIdx++, i);
 			}
 		}
