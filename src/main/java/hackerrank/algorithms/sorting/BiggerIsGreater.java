@@ -2,6 +2,8 @@ package hackerrank.algorithms.sorting;
 
 import org.junit.Test;
 
+import java.util.Scanner;
+
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
@@ -10,7 +12,17 @@ import static org.junit.Assert.assertEquals;
  */
 public class BiggerIsGreater {
 
-	String nextLexicographical(String word) {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		in.nextLine();
+
+		for (int i= 0 ; i < n; i++) {
+			System.out.println(nextLexicographical(in.nextLine()));
+		}
+	}
+
+	public static String nextLexicographical(String word) {
 		char[] letters = word.toCharArray();
 
 		int pivot = findPivot(letters);
@@ -20,17 +32,18 @@ public class BiggerIsGreater {
 
 		int target = findRightmostGreaterThanPivot(letters, pivot);
 		swap(letters, pivot, target);
-		reverse(letters, pivot, letters.length);
+		reverse(letters, pivot + 1, letters.length);
 
 		return String.valueOf(letters);
 	}
 
 	private static int findPivot(char[] letters) {
-		int pivot = letters.length - 1;
-		while (pivot > 0 && letters[pivot - 1] >= letters[pivot]) {
-			pivot--;
+		for (int i = letters.length - 1; i > 0; i--) {
+			if (letters[i - 1] < letters[i]) {
+				return i - 1;
+			}
 		}
-		return pivot - 1;
+		return -1;
 	}
 
 	private static int findRightmostGreaterThanPivot(char[] letters, int pivot) {
@@ -65,7 +78,11 @@ public class BiggerIsGreater {
 
 	@Test
 	public void testFindPivot() {
-		assertEquals(1, findPivot(new char[]{2, 5, 7, 6, 4, 3, 1}));
+		assertEquals(0, findPivot("ab".toCharArray()));
+		assertEquals(-1, findPivot("bb".toCharArray()));
+		assertEquals(2, findPivot("hefg".toCharArray()));
+		assertEquals(2, findPivot("dhck".toCharArray()));
+		assertEquals(0, findPivot("dkhc".toCharArray()));
 	}
 
 	@Test
