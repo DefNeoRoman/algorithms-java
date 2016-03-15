@@ -27,12 +27,16 @@ public class CountingSort3 {
 
 	public static int[] accumulateFrequency(String[] input) {
 		int[] frequency = new int[100];
+
 		for (String str : input) {
 			int num = Integer.parseInt(str.split(" ")[0]);
-			for (int i = num; i < frequency.length; i++) {
-				frequency[i] += 1;
-			}
+			frequency[num] += 1;
 		}
+
+		for (int i = 1; i < frequency.length; i++) {
+			frequency[i] += frequency[i-1];
+		}
+
 		return frequency;	
 	}
 
