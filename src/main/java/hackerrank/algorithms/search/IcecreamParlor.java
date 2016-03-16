@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -26,7 +27,37 @@ public class IcecreamParlor {
 		}
 	}
 
+	// O(n*log(n))
 	public static void printTwoIndices(int amt, int[] costs) {
+		HashMap<Integer, Integer> maps = new HashMap<>();
+
+		for(int i = 0; i < costs.length; i++){
+			maps.put(costs[i], i);
+		}
+
+		//array.sort consumes O(n*log(n))
+		Arrays.sort(costs);
+
+		//for loop and binary search both together consumes O(n*log(n))
+		for (int i = 0; i < costs.length - 1; i++) {
+			int index = Arrays.binarySearch(costs, i + 1, costs.length, amt - costs[i]);
+
+			if(index >= 0) {
+				//we need to increment by 1, in case, two duplicates make up M
+				int startIndex = costs[index] == costs[i] ? maps.get(costs[i]) : maps.get(costs[i]) + 1;
+				int endIndex = maps.get(costs[index]) + 1;
+
+				if (startIndex > endIndex)
+					System.out.println(endIndex + " " + startIndex);
+				else
+					System.out.println(startIndex + " " + endIndex);
+				return;
+			}
+		}
+	}
+
+	// O(n^2)
+	public static void printTwoIndicesSlow(int amt, int[] costs) {
 		for (int first = 0; first < costs.length - 1; first++) {
 			for (int second = first + 1; second < costs.length; second++) {
 				if (costs[first] + costs[second] == amt) {
