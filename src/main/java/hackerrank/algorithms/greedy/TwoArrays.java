@@ -55,7 +55,7 @@ public class TwoArrays {
 
 	private static boolean isSumGreaterThanBottom(List<Integer> listA, List<Integer> listB, int bottomSum) {
 		Collections.sort(listA);
-		Collections.sort(listB);
+		Collections.sort(listB, Collections.reverseOrder());
 
 		while (!listA.isEmpty()) {
 			int a = listA.get(0);
