@@ -1,4 +1,4 @@
-package interviewcake;
+package interviewcake.kthToLastNodeInSinglyLinkedList;
 
 import java.util.Arrays;
 

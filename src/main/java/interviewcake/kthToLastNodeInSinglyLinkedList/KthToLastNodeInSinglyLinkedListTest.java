@@ -1,9 +1,8 @@
-package interviewcake;
-
-import static org.junit.Assert.assertEquals;
-import interviewcake.KthToLastNodeInSinglyLinkedList.Node;
+package interviewcake.kthToLastNodeInSinglyLinkedList;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class KthToLastNodeInSinglyLinkedListTest {
 
@@ -11,11 +10,11 @@ public class KthToLastNodeInSinglyLinkedListTest {
 	
 	@Test
 	public void test() {
-		Node a = svc.new Node("Angel Food");
-		Node b = svc.new Node("Bundt");
-		Node c = svc.new Node("Cheese");
-		Node d = svc.new Node("Devil's Food");
-		Node e = svc.new Node("Eccles");
+		KthToLastNodeInSinglyLinkedList.Node a = svc.new Node("Angel Food");
+		KthToLastNodeInSinglyLinkedList.Node b = svc.new Node("Bundt");
+		KthToLastNodeInSinglyLinkedList.Node c = svc.new Node("Cheese");
+		KthToLastNodeInSinglyLinkedList.Node d = svc.new Node("Devil's Food");
+		KthToLastNodeInSinglyLinkedList.Node e = svc.new Node("Eccles");
 		
 		a.next = b;
 		b.next = c;
