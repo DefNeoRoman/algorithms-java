@@ -1,4 +1,4 @@
-package interviewcake;
+package interviewcake.SingleRifleCheck;
 
 import java.util.Arrays;
 
