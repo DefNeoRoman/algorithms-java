@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 public class BoardCoverTest {
 
+/*
     private BoardCover boardCover;
 
     @Test
@@ -20,5 +21,6 @@ public class BoardCoverTest {
         BoardCover boardCover = new BoardCover(height, width, matrix);
         assertEquals(2, boardCover.count());
     }
+*/
 
 }
