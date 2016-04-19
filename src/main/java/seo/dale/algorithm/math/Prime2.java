@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.util.*;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -18,44 +17,42 @@ public class Prime2 {
     }
 
     public List<Integer> findAllPrimeNumbersUpTo(int num) {
-        Map<Integer, Boolean> candidates = new HashMap<>(num -1);
-        for (int i = 2; i <= num; i++) {
-            candidates.put(i, true);
-        }
-        System.out.println(candidates);
+        boolean[] primes = new boolean[num + 1];
+        Arrays.fill(primes, true);
+        primes[0] = false;
+        primes[1] = false;
 
-        int min = 2;
-
-        while (true) {
-            for (int times = 2; min * times < num; times++) {
-                int key = min * times;
-                if (key <= num) {
-                    candidates.put(key, false);
-                }
-            }
-            min = findMinPrimeSoFar(min, num, candidates);
-            if (min == -1) {
-                break;
+        int min = 1;
+        while ((min = findMinPrimeSoFar(min, primes)) != -1) {
+            int times = 2;
+            int candidate;
+            while ((candidate = min * times) <= num) {
+                primes[candidate] = false;
+                times++;
             }
         }
 
-        List<Integer> primeNumbers = new ArrayList<>();
-        candidates.forEach((key, value) -> {
-            if (value) {
-                primeNumbers.add(key);
-            }
-        });
-        return primeNumbers;
+        return makePrimeNumberList(primes);
     }
 
-    public int findMinPrimeSoFar(int min, int num, Map<Integer, Boolean> candidates) {
-        for (int key = min + 1; key <= num; key++) {
-            if (candidates.get(key)) {
-                return key;
+    public int findMinPrimeSoFar(int min, boolean[] primes) {
+        for (int i = min + 1; i < primes.length; i++) {
+            if (primes[i]) {
+                return i;
             }
         }
         return -1;
     }
 
+    public List<Integer> makePrimeNumberList(boolean[] arr) {
+        List<Integer> list = new ArrayList<>();
+        double until = Math.ceil(Math.sqrt(arr.length - 1));
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i]) {
+                list.add(i);
+            }
+        }
+        return list;
+    }
 
 }
