@@ -1,4 +1,4 @@
-package backjoon;
+package backjoon.p6359;
 
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ import java.util.Scanner;
  출력
  주어진 날짜와 자동차의 일의 자리 숫자를 보고 10부제를 위반하는 차량의 대수를 출력한다.
  */
-public class P10797 {
+public class Main {
 
 	@Test
 	public void test1() {
