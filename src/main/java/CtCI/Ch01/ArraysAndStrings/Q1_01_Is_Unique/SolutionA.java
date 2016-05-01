@@ -1,4 +1,4 @@
-package CtCI.Ch01.ArraysAndStrings.Q01_Is_Unique;
+package CtCI.Ch01.ArraysAndStrings.Q1_01_Is_Unique;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package CtCI.Ch01.ArraysAndStrings.Q01_Is_Unique;
+package CtCI.Ch01.ArraysAndStrings.Q1_01_Is_Unique.solution;
 
 public class QuestionA {
 	public static boolean isUniqueChars(String str) {

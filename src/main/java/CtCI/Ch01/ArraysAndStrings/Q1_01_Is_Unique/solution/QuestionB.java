@@ -1,4 +1,4 @@
-package CtCI.Ch01.ArraysAndStrings.Q01_Is_Unique;
+package CtCI.Ch01.ArraysAndStrings.Q1_01_Is_Unique.solution;
 
 /**
  * 비트 벡터를 사용하면 필요한 공간을 1/8로 줄일 수 있다.
