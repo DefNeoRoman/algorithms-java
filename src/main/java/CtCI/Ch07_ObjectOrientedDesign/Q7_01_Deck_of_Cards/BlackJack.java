@@ -14,7 +14,6 @@ public class BlackJack {
         this.numOfPlayers = numOfPlayers;
         dealer = new Dealer(0L, "Dealer", dealerMoney);
         playerList = new ArrayList<>(numOfPlayers);
-        join(dealer);
     }
 
     public void join(Player player) {
@@ -29,6 +28,8 @@ public class BlackJack {
     public void play() {
         dealer.shuffleDeck();
 
+        System.out.println("=========================================================================================");
+
         // while (continues()) {
         proceedRound();
         //}
@@ -38,18 +39,52 @@ public class BlackJack {
         Scanner scanner = new Scanner(System.in);
 
         playerList.forEach(player -> {
-            if (!(player instanceof Dealer)) {
-                System.out.println("Hey, " + player.getName());
-                System.out.println("Please bet : ");
-                int bet = scanner.nextInt();
-                player.setBet(bet);
-            }
+            System.out.print(player.getName() + ", Please bet. : ");
+            int bet = scanner.nextInt();
+            player.setBet(bet);
         });
+
+        System.out.println("-----------------------------------------------------------------------------------------");
 
         dealer.handOutCards(playerList);
 
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        if (isEveryoneStayed()) {
+            System.out.println("Dealer should hit or stay to finish the round... (to be developed).");
+        }
 
 
+        playerList.forEach(player -> {
+            if (player.isStayed()) {
+                return;
+            }
+            System.out.print(player.getName() + ", Hit(h) or stay(s)? : ");
+            String action = scanner.next();
+            if ("h".equals(action)) {
+                player.hit();
+                dealer.giveACard(player);
+            } else {
+                player.stay();
+            }
+        });
+
+        for (Player player : playerList) {
+            if (player.isDead()) {
+                player.lose();
+                playerList.remove(player);
+            }
+        }
+
+    }
+
+    private boolean isEveryoneStayed() {
+        for (Player player : playerList) {
+            if (!player.isStayed()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private boolean continues() {

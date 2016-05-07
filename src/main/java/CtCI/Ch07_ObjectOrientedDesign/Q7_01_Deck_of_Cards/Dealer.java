@@ -24,6 +24,15 @@ public class Dealer extends Player {
             player.receiveCard(card1);
             player.receiveCard(card2);
         });
+        Card card1 = deck.turnCard();
+        Card card2 = deck.turnCard();
+        this.receiveCard(card1);
+        this.receiveCard(card2);
+    }
+
+    public void giveACard(Player player) {
+        Card aCard = deck.turnCard();
+        player.receiveCard(aCard);
     }
 
     public void auto() {
