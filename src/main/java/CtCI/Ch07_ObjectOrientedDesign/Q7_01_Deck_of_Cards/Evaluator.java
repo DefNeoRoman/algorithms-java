@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface Evaluator {
 
+    boolean exceeds(List<Card> cardList);
+
     int evaluate(List<Card> cardList);
 
 }

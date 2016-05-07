@@ -26,79 +26,8 @@ public class BlackJack {
     }
 
     public void play() {
-        dealer.shuffleDeck();
-
-        System.out.println("=========================================================================================");
-
-        // while (continues()) {
-        proceedRound();
-        //}
-    }
-
-    private void proceedRound() {
-        Scanner scanner = new Scanner(System.in);
-
-        playerList.forEach(player -> {
-            System.out.print(player.getName() + ", Please bet. : ");
-            int bet = scanner.nextInt();
-            player.setBet(bet);
-        });
-
-        System.out.println("-----------------------------------------------------------------------------------------");
-
-        dealer.handOutCards(playerList);
-
-        System.out.println("-----------------------------------------------------------------------------------------");
-
-        if (isEveryoneStayed()) {
-            System.out.println("Dealer should hit or stay to finish the round... (to be developed).");
-        }
-
-
-        playerList.forEach(player -> {
-            if (player.isStayed()) {
-                return;
-            }
-            System.out.print(player.getName() + ", Hit(h) or stay(s)? : ");
-            String action = scanner.next();
-            if ("h".equals(action)) {
-                player.hit();
-                dealer.giveACard(player);
-            } else {
-                player.stay();
-            }
-        });
-
-        for (Player player : playerList) {
-            if (player.isDead()) {
-                player.lose();
-                playerList.remove(player);
-            }
-        }
-
-    }
-
-    private boolean isEveryoneStayed() {
-        for (Player player : playerList) {
-            if (!player.isStayed()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean continues() {
-        if (dealer.getMoney() < 0) {
-            System.out.println("The dealer went broke!.");
-            return false;
-        }
-
-        if (playerList.isEmpty()) {
-            System.out.println("All the players went broke!.");
-            return false;
-        }
-
-        return true;
+        GameRunner gameRunner = new GameRunner(dealer, playerList);
+        gameRunner.run();
     }
 
 }

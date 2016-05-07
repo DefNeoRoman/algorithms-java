@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Dealer extends Player {
 
+    private static int THREADHOLD = 17;
+
     private Deck deck;
 
     public Dealer(Long id, String name, int money) {
@@ -16,7 +18,7 @@ public class Dealer extends Player {
         deck.shuffle();
     }
 
-    public void handOutCards(List<Player> playerList) {
+    public void passAroundCards(List<Player> playerList) {
         System.out.println("The dealer hands out the cards.");
         playerList.forEach(player -> {
             Card card1 = deck.turnCard();
@@ -36,7 +38,13 @@ public class Dealer extends Player {
     }
 
     public void auto() {
-        System.out.println("- Dealer auto");
+        Evaluator evaluator = new SimpleEvaluator();
+
+        System.out.println("- Dealer plays by the rule");
+        int currentValue = evaluator.evaluate(cardList);
+        while (currentValue < THREADHOLD) {
+            giveACard(this);
+        }
     }
 
 }

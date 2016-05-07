@@ -13,19 +13,17 @@ public class Player {
     protected List<Card> cardList;
 
     private boolean stayed;
-
-    protected Evaluator evaluator;
+    private boolean lost;
 
     public Player(Long id, String name, int money) {
         cardList = new ArrayList<>(10);
-        evaluator = new SimpleEvaluator();
         this.id = id;
         this.name = name;
         this.money = money;
     }
 
-    public boolean isDead() {
-        return evaluate() > 21;
+    public boolean isLost() {
+        return lost;
     }
 
     public boolean isStayed() {
@@ -35,18 +33,28 @@ public class Player {
         return stayed;
     }
 
-    public int evaluate() {
-        return evaluator.evaluate(cardList);
-    }
-
-    public void lose() {
-        money -= bet;
+    public void lose(Player other) {
+        lost = true;
+        decreaseMoney(bet);
         System.out.println(name + " lost " + bet + ".");
+        other.increaseMoney(bet);
+        System.out.println(other.getName() + " won " + bet + ".");
     }
 
-    public void win() {
-        money += bet;
+    public void win(Player other) {
+        lost = false;
+        increaseMoney(bet);
         System.out.println(name + " won " + bet + ".");
+        other.decreaseMoney(bet);
+        System.out.println(other.getName() + " lost " + bet + ".");
+    }
+
+    public void increaseMoney(int bet) {
+        money += bet;
+    }
+
+    public void decreaseMoney(int bet) {
+        money -= bet;
     }
 
     public void hit() {
@@ -85,4 +93,5 @@ public class Player {
     public String toString() {
         return String.format("Player #%s(%s) with $%s\n", id, name, money);
     }
+
 }

@@ -6,7 +6,8 @@ public class BlackJackTest {
 
     public static void main(String[] args) {
         BlackJack blackJack = new BlackJack(1000, 1);
-        blackJack.join(new Player(1L, "Dale", 100));
+        blackJack.join(new Player(1L, "Sally", 100));
+        blackJack.join(new Player(1L, "John", 100));
         blackJack.play();
 
 //        Scanner scanner = new Scanner(System.in);
