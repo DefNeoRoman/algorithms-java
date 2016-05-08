@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * https://www.interviewcake.com/question/java/delete-node?utm_source=weekly_email
  */
-public class LinkedListNodeTest {
+public class MainTest {
 
     public static class LinkedListNode {
 
