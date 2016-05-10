@@ -1,4 +1,4 @@
-package seo.dale.algorithm.recursion;
+package seo.dale.algorithm.recursion.hanoi;
 
 import org.junit.Test;
 
