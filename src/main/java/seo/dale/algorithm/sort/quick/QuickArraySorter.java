@@ -12,7 +12,7 @@ import java.util.Arrays;
  * 퀵 정렬은 어떠한 자료를 기준(PIVOT)으로 작거나 같은 값을 지닌 자료는 앞으로,
  * 큰 값을 지닌 자료는 뒤로 가도록 하여 작은 값을 갖는 데이터와 큰 값을 갖는 데이터로 분리해가며 정렬하는 방법이다.
  */
-public class QuickSorter {
+public class QuickArraySorter {
 
 	public static void sort(int[] arr) {
 		sort(arr, 0, arr.length - 1);
@@ -26,7 +26,7 @@ public class QuickSorter {
 		
 		int pivot = start;
 		for (int i = start + 1; i <= end; i++) {
-			if (arr[start] > arr[i]) {
+			if (arr[i] < arr[start]) {
 				swap(arr, ++pivot, i);
 			}
 		}

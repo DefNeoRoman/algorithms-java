@@ -7,18 +7,20 @@ import java.util.Arrays;
 public class BestMergeSorter {
 
 	public static void mergeSort(int[] arr) {
-		mergeSort(arr, 0, arr.length - 1);
+		sort(arr, 0, arr.length - 1);
 	}
 
-	private static void mergeSort(int[] arr, int low, int high) {
-		System.out.printf("mergeSort from %s to %s%n", low, high);
+	private static void sort(int[] arr, int low, int high) {
+		System.out.printf("sort from %s to %s%n", low, high);
 		if (low >= high) {
 			return;
 		}
 
 		int mid = (low + high) / 2;
-		mergeSort(arr, 0, mid);
-		mergeSort(arr, mid + 1, high);
+		// 선 정렬
+		sort(arr, 0, mid);
+		sort(arr, mid + 1, high);
+		// 후 머지
 		merge(arr, low, mid, high);
 	}
 
