@@ -1,4 +1,4 @@
-package seo.dale.algorithm.search;
+package seo.dale.algorithm.search.binary;
 
 public class BinaryArraySearcher {
 	
@@ -43,7 +43,7 @@ public class BinaryArraySearcher {
 		if (target < arr[mid]) {
 			return rangeSearch(arr, target, low, mid - 1);
 		} else {
-			return rangeSearch(arr, target, mid + 1, mid - 1);
+			return rangeSearch(arr, target, mid + 1, high);
 		}
 	}
 	

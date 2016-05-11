@@ -1,8 +1,8 @@
-package seo.dale.algorithm.search;
-
-import static org.junit.Assert.*;
+package seo.dale.algorithm.search.binary;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class BinaryArraySearcherTest {
 	
