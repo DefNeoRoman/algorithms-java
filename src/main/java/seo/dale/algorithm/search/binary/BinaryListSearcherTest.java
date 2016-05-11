@@ -1,4 +1,4 @@
-package seo.dale.algorithm.search;
+package seo.dale.algorithm.search.binary;
 
 import org.junit.Test;
 
