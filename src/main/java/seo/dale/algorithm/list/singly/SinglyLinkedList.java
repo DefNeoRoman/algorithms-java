@@ -38,7 +38,7 @@ public class SinglyLinkedList<T> {
 		return builder.toString();
 	}
 
-	public void addAtTheBeginning(T data) {
+	public void prepend(T data) {
 		logger.log(Level.INFO, "addAtTheBeginning : " + data);
 		if (tail == null) {
 			tail = head;
@@ -48,7 +48,7 @@ public class SinglyLinkedList<T> {
 		head = node;  // head -> node
 	}
 
-	public void addAtTheEnd(T data) {
+	public void postpend(T data) {
 		logger.log(Level.INFO, "addAtTheEnd : " + data);
 		Node<T> node = new Node<>(data);
 		if (tail != null) {
@@ -60,7 +60,7 @@ public class SinglyLinkedList<T> {
 		}
 	}
 
-	public void insertAt(int index, T data) {
+	public void insert(int index, T data) {
 		logger.log(Level.INFO, "insert " + data + " at "+ index);
 		Node<T> previous = head;
 		while (index --> 1) {
@@ -75,32 +75,29 @@ public class SinglyLinkedList<T> {
 		node.setNext(previous.getNext()); // node.next -> previous.next
 	}
 
-}
+	public void delete(int index) {
+		logger.log(Level.INFO, "delete at "+ index);
+		// at the beginning
+		if (index == 0) {
+			head = head.getNext();
+			return;
+		}
 
+		Node<T> previous = head;
+		while (index --> 1) {
+			previous = previous.getNext();
+			if (previous == null) {
+				throw new SinglyLinkedListException("The index can't be greater than the size.");
+			}
+		}
 
+		Node<T> current = previous.getNext();
+		if (current == null) {
+			throw new SinglyLinkedListException("The index can't be greater than the size.");
+		}
 
-class Node<T> {
-
-	private T data;
-	private Node<T> next;
-
-	public Node(T data) {
-		this.data = data;
+		Node<T> next = current.getNext();
+		previous.setNext(next);
 	}
 
-	public T getData() {
-		return data;
-	}
-
-	public void setData(T data) {
-		this.data = data;
-	}
-
-	public Node<T> getNext() {
-		return next;
-	}
-
-	public void setNext(Node<T> next) {
-		this.next = next;
-	}
 }

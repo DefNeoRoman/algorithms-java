@@ -15,35 +15,46 @@ public class SinglyLinkedListTest {
 	}
 
 	@Test
-	public void testAddAtTheBeginning() throws Exception {
-		singlyLinkedList.addAtTheBeginning('A');
+	public void testPrepend() throws Exception {
+		singlyLinkedList.prepend('A');
 		assertEquals("A", singlyLinkedList.toString());
-		singlyLinkedList.addAtTheBeginning('B');
+		singlyLinkedList.prepend('B');
 		assertEquals("B->A", singlyLinkedList.toString());
-		singlyLinkedList.addAtTheBeginning('C');
+		singlyLinkedList.prepend('C');
 		assertEquals("C->B->A", singlyLinkedList.toString());
 	}
 
 	@Test
-	public void testAddAtTheEnd() throws Exception {
-		singlyLinkedList.addAtTheEnd('A');
+	public void testPostpend() throws Exception {
+		singlyLinkedList.postpend('A');
 		assertEquals("A", singlyLinkedList.toString());
-		singlyLinkedList.addAtTheEnd('B');
+		singlyLinkedList.postpend('B');
 		assertEquals("A->B", singlyLinkedList.toString());
-		singlyLinkedList.addAtTheEnd('C');
+		singlyLinkedList.postpend('C');
 		assertEquals("A->B->C", singlyLinkedList.toString());
 	}
 
 	@Test
-	public void testInsertAt() throws Exception {
-		singlyLinkedList.addAtTheBeginning('A');
-		singlyLinkedList.addAtTheBeginning('C');
-		singlyLinkedList.addAtTheBeginning('E');
+	public void testInsert() throws Exception {
+		singlyLinkedList.prepend('A');
+		singlyLinkedList.prepend('C');
+		singlyLinkedList.prepend('E');
 
-		singlyLinkedList.insertAt(1, 'B');
+		singlyLinkedList.insert(1, 'B');
 		assertEquals("A->B->C->E", singlyLinkedList.toString());
-		singlyLinkedList.insertAt(3, 'D');
+		singlyLinkedList.insert(3, 'D');
 		assertEquals("A->B->C->D->E", singlyLinkedList.toString());
+	}
+	@Test
+	public void testDelete() throws Exception {
+		singlyLinkedList.prepend('C');
+		singlyLinkedList.prepend('B');
+		singlyLinkedList.prepend('A');
+
+		singlyLinkedList.delete(1);
+		assertEquals("A->C", singlyLinkedList.toString());
+		singlyLinkedList.delete(0);
+		assertEquals("C", singlyLinkedList.toString());
 	}
 
 	@Test
