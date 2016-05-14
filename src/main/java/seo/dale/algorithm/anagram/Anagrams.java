@@ -28,7 +28,7 @@ public class Anagrams {
     public List<String> getAnagrams(final String word) {
         final String signature = alphabetize(word);
         final List<String> anagrams = lookup.get(signature);
-        return anagrams == null ? new ArrayList<>() : anagrams;
+        return anagrams == null ? Collections.emptyList() : anagrams;
     }
 
 }
