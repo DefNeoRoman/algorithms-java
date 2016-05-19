@@ -7,10 +7,10 @@ import seo.dale.algorithm.sort.Introduction.library.TreeNode;
 import java.util.*;
 
 /**
- * BFS 탐색을 이용해 Iterative하게 구현
- * Complexity : O(n) time & O(n) space
+ * DFS 탐색을 이용해 Recursive하게 구현
+ * Complexity : O(n) time & O(n) + O(log(n)) space
  */
-public class MySolution1 {
+public class MySolution2 {
 
 	@Test
 	public void testCreateLevelLinkedList() {
@@ -21,42 +21,49 @@ public class MySolution1 {
 	}
 
 	public static List<List<TreeNode>> createLevelLinkedList(TreeNode root) {
-		if (root == null) {
-			return null;
-		}
-
 		List<List<TreeNode>> list = new LinkedList<>();
-
-		List<TreeNode> currents = new LinkedList<>();
-		currents.add(root);
-		logCurrents(currents);
-		list.add(currents);
-
-		while (!currents.isEmpty()) {
-			List<TreeNode> parents = currents;
-			currents = new LinkedList<>();
-			for (TreeNode aParent : parents) {
-				if (aParent.left != null) {
-					currents.add(aParent.left);
-				}
-				if (aParent.right != null) {
-					currents.add(aParent.right);
-				}
-			}
-			logCurrents(currents);
-			list.add(currents);
-		}
-
-
+		createLevelLinkedList(root, list, 0);
 		return list;
 	}
 
-	private static void logCurrents(List<TreeNode> currents) {
-		for (TreeNode aCurrent : currents) {
-			System.out.print(aCurrent.data + " ");
+	public static void createLevelLinkedList(TreeNode node, List<List<TreeNode>> list, int level) {
+		if (node == null) {
+			return;
 		}
-		System.out.println();
+
+		System.out.println(indent(level) + "Deal with [" + node.data + "]");
+
+		if (list.size() == level) {
+			list.add(new LinkedList<>());
+		}
+
+		List<TreeNode> row = list.get(level);
+		row.add(node);
+
+		log(list);
+
+		createLevelLinkedList(node.left, list, level + 1);
+		createLevelLinkedList(node.right, list, level + 1);
 	}
+
+	private static String indent(int level) {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < level; i++) {
+			builder.append(". ");
+		}
+		return builder.toString();
+	}
+
+	private static void log(List<List<TreeNode>> lists) {
+		for (List<TreeNode> list : lists) {
+			for (TreeNode node : list) {
+				System.out.print(node.data + " ");
+			}
+			System.out.println();
+		}
+		System.out.println("================================================");
+	}
+
 
 	public static void printResult(List<List<TreeNode>> result){
 		int depth = 0;
