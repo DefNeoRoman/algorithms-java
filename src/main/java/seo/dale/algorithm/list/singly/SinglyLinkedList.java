@@ -12,6 +12,7 @@ public class SinglyLinkedList<T> {
 	private int size;
 
 	public SinglyLinkedList() {
+
 	}
 
 	public int size() {
