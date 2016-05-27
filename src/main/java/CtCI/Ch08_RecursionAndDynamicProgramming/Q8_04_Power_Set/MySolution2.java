@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 조합 : 이진수의 개수 = 부분집합의 개수 = 2^n
+ */
 public class MySolution2 {
 
 	@Test
