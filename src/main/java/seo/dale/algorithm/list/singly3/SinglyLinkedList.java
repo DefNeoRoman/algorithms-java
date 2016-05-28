@@ -8,7 +8,7 @@ public class SinglyLinkedList<T> {
     private Node<T> head;
     private Node<T> tail;
 
-    public void add(T data) {
+    public void addBack(T data) {
         Node<T> node = new Node<>(data);
         System.out.println("Adding " + data);
         if (head == null) {
@@ -30,16 +30,54 @@ public class SinglyLinkedList<T> {
             current = current.getNext();
         }
 
-        if (current != null) {
-            Node<T> node = new Node<>(data);
-            node.setNext(current.getNext());
-            current.setNext(node);
-            if (current == tail) {
-                tail = node;
-            }
-        } else {
+        if (current == null) {
             System.out.println("Unable to find the given element...");
         }
+
+        Node<T> node = new Node<>(data);
+        node.setNext(current.getNext());
+        current.setNext(node);
+        if (current == tail) {
+            tail = node;
+        }
+    }
+
+    public void deleteFront() {
+        if (head == null) {
+            System.out.println("Underflow...");
+        }
+        Node<T> current = head;
+        head = current.getNext();
+        while (head == null) {
+            tail = null;
+        }
+        System.out.println("Deleted: " + current.getData());
+    }
+
+    public void deleteAfter(T afterData) {
+        Node<T> current = head;
+        while (current != null) {
+            if (current.getData() == afterData) {
+                break;
+            }
+            current = current.getNext();
+        }
+
+        if (current == null) {
+            System.out.println("Unable to find the given element...");
+        }
+
+        if (current.getNext() == null) {
+            System.out.println("Nothing to delete...");
+        }
+
+        current.setNext(current.getNext().getNext());
+
+        if (current.getNext() == null) {
+            tail = current;
+        }
+
+        System.out.println("Deleted after : "+ current.getData());
     }
 
     @Override
