@@ -1,4 +1,4 @@
-package algospot.DRAWRECT;
+package algospot.basic.DRAWRECT;
 
 import org.junit.Test;
 

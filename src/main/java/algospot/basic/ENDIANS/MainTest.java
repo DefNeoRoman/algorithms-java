@@ -1,4 +1,4 @@
-package algospot.ENDIANS;
+package algospot.basic.ENDIANS;
 
 import org.junit.Test;
 

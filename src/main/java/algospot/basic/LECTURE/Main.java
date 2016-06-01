@@ -1,4 +1,4 @@
-package algospot.LECTURE;
+package algospot.basic.LECTURE;
 
 import java.util.ArrayList;
 import java.util.Collections;

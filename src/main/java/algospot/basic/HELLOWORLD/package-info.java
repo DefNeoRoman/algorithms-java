@@ -1,4 +1,4 @@
 /**
  * https://www.algospot.com/judge/problem/read/HELLOWORLD
  */
-package algospot.HELLOWORLD;
+package algospot.basic.HELLOWORLD;

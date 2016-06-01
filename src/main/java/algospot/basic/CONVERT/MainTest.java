@@ -1,4 +1,4 @@
-package algospot.CONVERT;
+package algospot.basic.CONVERT;
 
 import static org.junit.Assert.assertEquals;
 
