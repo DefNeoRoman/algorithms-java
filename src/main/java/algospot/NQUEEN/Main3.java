@@ -2,6 +2,9 @@ package algospot.NQUEEN;
 
 import java.util.Scanner;
 
+/**
+ * http://jjeeuu.tistory.com/13
+ */
 public class Main3 {
 	public static int n;
 
