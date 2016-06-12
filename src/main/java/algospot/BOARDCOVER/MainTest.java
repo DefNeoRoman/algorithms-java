@@ -14,7 +14,27 @@ public class MainTest {
             lines[index] = true;
         }
 
-        assertEquals(2, Main.fill(3, 7, lines));
+        assertEquals(2, Main.countCovers(7, lines));
+    }
+
+    @Test
+    public void test2() {
+        boolean[] lines = new boolean[80];
+        int[] indexes = {
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                10, 19,
+                20, 29,
+                30, 39,
+                40, 49,
+                50, 59,
+                60, 69,
+                70, 71, 72, 73, 74, 75, 76, 77, 78, 79
+        };
+        for (int index : indexes) {
+            lines[index] = true;
+        }
+
+        assertEquals(1514, Main.countCovers(10, lines));
     }
 
     @Test
@@ -49,4 +69,17 @@ public class MainTest {
         assertFalse(Main.areAllVisited(lines));
     }
 
+    @Test
+    public void testPrint() throws Exception {
+        boolean[] spots = new boolean[21];
+        Main.print(7, spots);
+
+        for (int i = 0; i < 21; i++) {
+            spots[i] = true;
+        }
+        Main.print(7, spots);
+
+        spots[15] = false;
+        Main.print(7, spots);
+    }
 }
