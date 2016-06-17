@@ -3,8 +3,7 @@
  */
 package algospot.STRJOIN;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -13,30 +12,25 @@ public class Main {
 		int cnt = scanner.nextInt();
 		while (cnt-- > 0) {
 			int length = scanner.nextInt();
-			int[] array = new int[length];
+			List<Integer> list = new LinkedList<>();
 			for (int i = 0; i < length; i++) {
-				array[i] = scanner.nextInt();
+				list.add(scanner.nextInt());
 			}
-			System.out.println(strjoin(array));
+			System.out.println(strjoin(list));
 		}
 	}
 
-	public static int strjoin(int[] array) {
-		// Nothing to join
-		if (array.length <= 0) {
-			return 0;
+	public static int strjoin(List<Integer> list) {
+		int total = 0;
+		while (list.size() > 1) {
+			Collections.sort(list);
+			int firstMin = list.remove(0);
+			int secondMin = list.remove(0);
+			int sumOfMins = firstMin + secondMin;
+			total += sumOfMins;
+			list.add(sumOfMins);
 		}
-
-		Arrays.sort(array);
-
-		int finalSum = 0;
-		int previousSum = array[0];
-		for (int i = 1; i < array.length; i++) {
-			finalSum = previousSum + array[i];
-			previousSum += array[i];
-		}
-
-		return finalSum;
+		return total;
 	}
 
 }
