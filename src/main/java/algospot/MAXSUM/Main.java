@@ -2,7 +2,7 @@
  * https://www.algospot.com/judge/problem/read/MAXSUM
  * https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane.27s_algorithm
  */
-package algospot.greedy.MAXSUM;
+package algospot.MAXSUM;
 
 import java.util.Scanner;
 

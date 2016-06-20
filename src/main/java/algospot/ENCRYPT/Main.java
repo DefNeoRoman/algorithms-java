@@ -1,7 +1,7 @@
 /**
  * https://www.algospot.com/judge/problem/read/ENCRYPT
  */
-package algospot.basic.ENCRYPT;
+package algospot.ENCRYPT;
 
 import java.util.LinkedList;
 import java.util.Queue;

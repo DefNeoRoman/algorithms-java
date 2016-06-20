@@ -1,4 +1,4 @@
-package algospot.basic.ENDIANS;
+package algospot.ENDIANS;
 
 import java.util.Scanner;
 

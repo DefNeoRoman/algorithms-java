@@ -1,4 +1,4 @@
-package algospot.greedy.MAXSUM;
+package algospot.MAXSUM;
 
 import org.junit.Test;
 

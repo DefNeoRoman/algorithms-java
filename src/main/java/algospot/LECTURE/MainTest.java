@@ -1,4 +1,4 @@
-package algospot.basic.LECTURE;
+package algospot.LECTURE;
 
 import org.junit.Test;
 

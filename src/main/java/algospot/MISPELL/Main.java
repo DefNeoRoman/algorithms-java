@@ -1,7 +1,7 @@
 /**
  * https://www.algospot.com/judge/problem/read/MISPELL
  */
-package algospot.basic.MISPELL;
+package algospot.MISPELL;
 
 import static org.junit.Assert.*;
 

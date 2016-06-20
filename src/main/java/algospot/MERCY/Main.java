@@ -1,4 +1,4 @@
-package algospot.basic.HELLOWORLD;
+package algospot.MERCY;
 
 import java.util.Scanner;
 
@@ -8,8 +8,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int numOfTests = scanner.nextInt();
         while (numOfTests --> 0) {
-            String name = scanner.next();
-            System.out.printf("Hello, %s!\n", name);
+            System.out.println("Hello Algospot!");
         }
     }
 

@@ -1,7 +1,7 @@
 /**
  * https://www.algospot.com/judge/problem/read/CONVERT
  */
-package algospot.basic.CONVERT;
+package algospot.CONVERT;
 
 import java.util.Scanner;
 

@@ -1,7 +1,7 @@
 /**
  * https://www.algospot.com/judge/problem/read/HOTSUMMER
  */
-package algospot.basic.HOTSUMMER;
+package algospot.HOTSUMMER;
 
 import java.util.Scanner;
 
