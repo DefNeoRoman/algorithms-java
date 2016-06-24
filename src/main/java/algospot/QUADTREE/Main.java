@@ -1,5 +1,6 @@
 /**
  * https://www.algospot.com/judge/problem/read/QUADTREE
+ * TODO 다른 사람들에 비해 소스가 너무 길고 느린 것 같음. 꼭 트리 구조를 쓰지 않고 문자열이나 배열 처리로 풀어내면 빨리 질 것 같음
  */
 package algospot.QUADTREE;
 
@@ -13,6 +14,7 @@ public class Main {
 		while (cnt-- > 0) {
 			QuadTree quadTree = new QuadTree(scanner.next());
 			quadTree.upsideDown();
+			System.out.println();
 		}
 		scanner.close();
 	}
@@ -21,35 +23,36 @@ public class Main {
 class QuadTree {
 
 	String text;
+	int current;
 
 	public QuadTree(String text) {
 		this.text = text;
+		current = 0;
 	}
 
 	public void upsideDown() {
-		Node root = buildTreeAt(0);
+//		Node root = new Node(0, text.charAt(0));
+//		buildTreeAt(root);
+		Node root = buildTreeForX();
 		traverseUpsideDown(root);
 	}
 
-	public Node buildTreeAt(int index) {
-		Node node = new Node(index, text.charAt(index));
-
-		index++;
-
-		while (index < text.length()) {
-			Node nodeToAdd;
-			char ch = text.charAt(index);
+	private Node buildTreeForX() {
+		Node node = new Node(current, text.charAt(current));
+		current = current + 1;
+		while (!node.isFull() && current < text.length()) {
+			Node child;
+			char ch = text.charAt(current);
 			if (ch == 'x') {
-				nodeToAdd = buildTreeAt(index);
+				child = buildTreeForX();
 			}
 			// 'w' or 'b'
 			else {
-				nodeToAdd = new Node(index, ch);
+				child = new Node(current, ch);
+				current += 1;
 			}
-			node.addChild(nodeToAdd);
-			index = nodeToAdd.index + 1;
+			node.addChild(child);
 		}
-
 		return node;
 	}
 
@@ -68,10 +71,6 @@ class QuadTree {
 		// Up later
 		traverseUpsideDown(children[0]);
 		traverseUpsideDown(children[1]);
-
-		for (Node child : node.children) {
-			traverseUpsideDown(child);
-		}
 	}
 
 }

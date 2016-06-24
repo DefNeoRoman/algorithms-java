@@ -1,26 +1,37 @@
 package algospot.QUADTREE;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class QuadTreeTest {
 
-	private QuadTree quadTree;
-
-	@Before
-	public void setUp() throws Exception {
-		quadTree = new QuadTree("xbwxwbbwb");
+	@Test
+	public void testUpsideDown() throws Exception {
+		QuadTree quadTree = new QuadTree("xxwwwbxwxwbbbwwxxxwwbbbwwwwbb");
+		quadTree.upsideDown();
 	}
 
 	@Test
-	public void testBuildTreeAt() throws Exception {
-		quadTree.buildTreeAt(0);
+	public void testUpsideDown2() throws Exception {
+		QuadTree quadTree = new QuadTree("xbwxwbbwb");
+		quadTree.upsideDown();
+	}
+
+	@Test
+		 public void testUpsideDown3() throws Exception {
+		QuadTree quadTree = new QuadTree("xbwwb");
+		quadTree.upsideDown();
+	}
+
+	@Test
+	public void testUpsideDown4() throws Exception {
+		QuadTree quadTree = new QuadTree("w");
+		quadTree.upsideDown();
 	}
 
 	@Test
 	public void testTraverseUpsideDown() throws Exception {
 		Node node = new Node(0, 'w');
-		quadTree.traverseUpsideDown(node);
+		new QuadTree("").traverseUpsideDown(node);
 	}
 
 	@Test
@@ -30,7 +41,7 @@ public class QuadTreeTest {
 		node.addChild(new Node(2, 'w'));
 		node.addChild(new Node(3, 'w'));
 		node.addChild(new Node(4, 'b'));
-		quadTree.traverseUpsideDown(node);
+		new QuadTree("").traverseUpsideDown(node);
 	}
 
 	@Test
@@ -47,7 +58,7 @@ public class QuadTreeTest {
 		node.addChild(subNode);
 
 		node.addChild(new Node(8, 'b'));
-		quadTree.traverseUpsideDown(node);
+		new QuadTree("").traverseUpsideDown(node);
 	}
 
 }
