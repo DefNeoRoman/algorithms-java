@@ -2,11 +2,11 @@
  * https://www.hackerrank.com/contests/w21/challenges/lazy-sorting
  * 확률을 구할 때 중복 원소가 있는 것도 고려해야 할 것 같음
  */
-package hackerrank.contest.weekOfCode21.lazySsorting;
+package hackerrank.contest.weekOfCode21.lazySorting;
 
 import java.util.Scanner;
 
-public class Solution {
+public class Solution2 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class Solution {
 			antiProbability *= 1 - probability;
 		}
 		// System.out.println(sum);
-		System.out.printf("%.6f", sum);
+		System.out.printf("%.6f%n", sum);
 	}
 
 	private static double calculateProbability(int length) {
