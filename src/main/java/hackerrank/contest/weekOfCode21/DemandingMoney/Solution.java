@@ -1,11 +1,10 @@
 /**
  * https://www.hackerrank.com/contests/w21/challenges/borrowing-money
- * Set 자료구조를 이용하여 경로가 중복되지 않게 저장해놓을까?
+ * Test #2,8 빼고 모두 패쓰
  */
 package hackerrank.contest.weekOfCode21.DemandingMoney;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
 
@@ -25,12 +24,12 @@ public class Solution {
 			roads[i] = road;
 		}
 
-		System.out.println("houses : " + Arrays.toString(houses));
-		for (int[] road : roads) {
-			System.out.println("road : " + Arrays.toString(road));
-		}
-
-		System.out.println("===============================================");
+//		System.out.println("houses : " + Arrays.toString(houses));
+//		for (int[] road : roads) {
+//			System.out.println("road : " + Arrays.toString(road));
+//		}
+//
+//		System.out.println("===============================================");
 
 		Solution solution = new Solution(houses, roads);
 		solution.solve();
@@ -39,32 +38,54 @@ public class Solution {
 	private int[] houses;
 	private int[][] roads;
 
-	private int max;
-	private int cnt;
-
 	public Solution(int[] houses, int[][] roads) {
 		this.houses = houses;
 		this.roads = roads;
-
-		max = 0;
-		cnt = 0;
 	}
 
 	public void solve() {
+		Map<Set<Integer>, Integer> map = new HashMap<>();
 		for (int houseId = 0; houseId < houses.length; houseId++) {
-			int money = visitAndGetMoney(houseId, new boolean[houses.length]);
-			System.out.println("From " + houseId + " : " + money);
+			Set<Integer> route = new HashSet<>();
+			visitAndGetMoney(houseId, new boolean[houses.length], route);
+
+			if (!map.containsKey(route)) {
+				int money = 0;
+				for (Integer id : route) {
+					money += houses[id];
+				}
+				map.put(route, money);
+			}
+			//System.out.println("From " + houseId + " : " + route);
 		}
+
+		//System.out.println("Map : " + map);
+
+		int max = 0;
+		for (Integer val : map.values()) {
+			max = Math.max(val, max);
+		}
+
+		int cnt = 0;
+		for (Integer val : map.values()) {
+			if (val == max) {
+				cnt++;
+			}
+		}
+
+		System.out.println(max + " " + cnt);
 	}
 
-	public int visitAndGetMoney(int houseId, boolean[] visits) {
-		System.out.println("houseId = [" + houseId + "], visits = " + Arrays.toString(visits));
+	public int visitAndGetMoney(int houseId, boolean[] visits, Set<Integer> route) {
+		// System.out.println("houseId = [" + houseId + "], visits = " + Arrays.toString(visits));
 		markVisited(houseId, visits);
 		int nextHouseId = next(visits);
 		if (nextHouseId == -1) {
-			return houses[houseId];
+			route.add(houseId);
+			return houseId;
 		} else {
-			return houses[houseId] + visitAndGetMoney(nextHouseId, visits);
+			route.add(houseId);
+			return houses[houseId] + visitAndGetMoney(nextHouseId, visits, route);
 		}
 	}
 
