@@ -6,7 +6,7 @@ package hackerrank.contest.weekOfCode21.DemandingMoney;
 
 import java.util.*;
 
-public class Solution {
+public class Solution2 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -31,14 +31,14 @@ public class Solution {
 //
 //		System.out.println("===============================================");
 
-		Solution solution = new Solution(houses, roads);
+		Solution2 solution = new Solution2(houses, roads);
 		solution.solve();
 	}
 
 	private int[] houses;
 	private int[][] roads;
 
-	public Solution(int[] houses, int[][] roads) {
+	public Solution2(int[] houses, int[][] roads) {
 		this.houses = houses;
 		this.roads = roads;
 	}
@@ -47,18 +47,17 @@ public class Solution {
 		Map<Set<Integer>, Integer> map = new HashMap<>();
 		for (int houseId = 0; houseId < houses.length; houseId++) {
 			System.out.println("# houseId : " + houseId);
-			List<Set<Integer>> routes = new LinkedList<>();
-			visitAndGetMoney(houseId, new boolean[houses.length], routes);
+			Set<Integer> route = new HashSet<>();
+			visitAndGetMoney(houseId, new boolean[houses.length], route);
 
-			for (Set<Integer> route : routes) {
-				if (!map.containsKey(route)) {
-					int money = 0;
-					for (Integer id : route) {
-						money += houses[id];
-					}
-					map.put(route, money);
+			if (!map.containsKey(route)) {
+				int money = 0;
+				for (Integer id : route) {
+					money += houses[id];
 				}
+				map.put(route, money);
 			}
+			//System.out.println("From " + houseId + " : " + route);
 		}
 
 		System.out.println("Map : " + map);
@@ -78,26 +77,8 @@ public class Solution {
 		System.out.println(max + " " + cnt);
 	}
 
-	public int visitAndGetMoney(int houseId, boolean[] visits, List<Set<Integer>> routes) {
-		// System.out.println("houseId = [" + houseId + "], visits = " + Arrays.toString(visits));
-
-		Set<Integer> route = new HashSet<>();
-		route.add(houseId);
-		routes.add(route);
-
-		markVisited(houseId, visits);
-		int nextHouseId = next(visits);
-
-		if (nextHouseId == -1) {
-			return houses[houseId];
-		} else {
-			return houses[houseId] + visitAndGetMoney(nextHouseId, visits, route);
-		}
-	}
-
 	public int visitAndGetMoney(int houseId, boolean[] visits, Set<Integer> route) {
-		// System.out.println("houseId = [" + houseId + "], visits = " + Arrays.toString(visits));
-
+		System.out.println("houseId = [" + houseId + "], visits = " + Arrays.toString(visits));
 		markVisited(houseId, visits);
 		int nextHouseId = next(visits);
 		route.add(houseId);
