@@ -1,4 +1,4 @@
-package seo.dale.algorithm.graph;
+package seo.dale.algorithm.graph.adjacentyList;
 
 import org.junit.Test;
 
