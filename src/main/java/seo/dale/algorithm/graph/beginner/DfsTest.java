@@ -1,6 +1,6 @@
 package seo.dale.algorithm.graph.beginner;
 
-public class Dfs {
+public class DfsTest {
 
 	public static void main(String[] args) {
 		Vertex vertexA = new Vertex('A');
