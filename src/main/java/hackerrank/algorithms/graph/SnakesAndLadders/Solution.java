@@ -1,14 +1,13 @@
 /**
  * https://www.hackerrank.com/challenges/the-quickest-way-up
+ * http://theoryofprogramming.com/2014/12/25/snakes-and-ladders-game-code/
  * https://www.youtube.com/watch?v=19tY6Y90TP0
+ * Timout 나서 통과 못함 ㅠㅠ
  */
 package hackerrank.algorithms.graph.SnakesAndLadders;
 
 import java.util.*;
 
-/**
- * @author 서대영(DAEYOUNG SEO)/Onestore/SKP
- */
 public class Solution {
 
 	public static void main(String[] args) {
@@ -72,9 +71,7 @@ public class Solution {
 				queue.add(next);
 				visited[nextDistance] = true;
 			}
-			System.out.println("--------------------------------------------------------------------------------------");
-			System.out.println(queue);
-		}
+	}
 
 		return -1;
 	}
@@ -90,7 +87,7 @@ public class Solution {
 
 		@Override
 		public String toString() {
-			return String.format("%d(%d)", vertex, distance);
+			return String.format("(%d)%d", distance, vertex);
 		}
 	}
 
