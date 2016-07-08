@@ -1,8 +1,14 @@
 package seo.dale.algorithm.graph.beginner;
 
-public class DfsTest {
+import org.junit.Before;
+import org.junit.Test;
 
-	public static void main(String[] args) {
+public class GraphSearchTest {
+
+	private Graph graph;
+
+	@Before
+	public void setUp() throws Exception {
 		Vertex vertexA = new Vertex('A');
 		Vertex vertexB = new Vertex('B');
 		Vertex vertexC = new Vertex('C');
@@ -11,7 +17,7 @@ public class DfsTest {
 		Vertex vertexF = new Vertex('F');
 		Vertex[] vertexes = {vertexA, vertexB, vertexC, vertexD, vertexE, vertexF};
 
-		Graph graph = new Graph(vertexes);
+		graph = new Graph(vertexes);
 
 		graph.addEdges(vertexA, vertexB, vertexC, vertexD);
 		graph.addEdges(vertexB, vertexB, vertexE, vertexF);
@@ -19,8 +25,16 @@ public class DfsTest {
 		graph.addEdges(vertexD, vertexA);
 		graph.addEdges(vertexE, vertexB);
 		graph.addEdges(vertexF, vertexB, vertexC);
+	}
 
-		graph.depthFirstSearch(vertexA); // A, B, E, F, C, D
+	@Test
+	public void testDepthFirstSearch() {
+		graph.depthFirstSearch(); // A, B, E, F, C, D
+	}
+
+	@Test
+	public void testBreadthFirstSearch() {
+		graph.breadthFristSearch(); // A, B, C, D, E, F
 	}
 
 }

@@ -1,7 +1,5 @@
 package seo.dale.algorithm.graph.beginner;
 
-import java.util.List;
-
 public class Vertex {
 
 	char data;
