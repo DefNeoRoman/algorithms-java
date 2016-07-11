@@ -21,14 +21,8 @@ public class Solution {
 				edges[i] = edge;
 			}
 			int start = scan.nextInt();
-//			System.out.println("numVertices : " + numVertices);
-//			System.out.println("numEdges : " + numEdges);
-//			for (int[] edge : edges) {
-//				System.out.println("edge : " + Arrays.toString(edge));
-//			}
-//			System.out.println("start : " + start);
 			solve(numVertices, numEdges, edges, start);
-			System.out.println("======================");
+			System.out.println();
 		}
 		scan.close();
 	}
@@ -47,7 +41,7 @@ public class Solution {
 			adjacencyListMap.get(vertexList.get(edge[1] - 1)).add(vertexList.get(edge[0] - 1));
 		}
 
-		System.out.println(adjacencyListMap);
+		// System.out.println(adjacencyListMap);
 
 		Vertex start = vertexList.get(startData - 1);
 		for (int i = 0; i < numVertices; i++) {
@@ -56,8 +50,13 @@ public class Solution {
 				continue;
 			}
 
+			for (Vertex vertex : vertexList) {
+				vertex.visited = false;
+			}
+
 			Queue<Vertex> queue = new LinkedList<>();
 			queue.add(start);
+			start.visited = true;
 
 			boolean found = false;
 			int distance = 0;
@@ -81,10 +80,12 @@ public class Solution {
 				}
 			}
 
-			if (distance > 0) {
-				System.out.println(end + " -> " + distance * 6);
+			if (found && distance > 0) {
+				// System.out.println(end + " -> " + distance * 6);
+				System.out.print(distance * 6 + " ");
 			} else {
-				System.out.println(end + " -> " + -1);
+				// System.out.println(end + " -> " + -1);
+				System.out.print(-1 + " ");
 			}
 
 		}
