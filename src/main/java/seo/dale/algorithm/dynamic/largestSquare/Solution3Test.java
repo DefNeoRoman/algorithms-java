@@ -2,11 +2,11 @@ package seo.dale.algorithm.dynamic.largestSquare;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-public class SolutionTest {
-	
-	private Solution solution = new Solution();
+public class Solution3Test {
+
+	private Solution3 solution = new Solution3();
 
 	@Test
 	public void findLargestSquare() throws Exception {
