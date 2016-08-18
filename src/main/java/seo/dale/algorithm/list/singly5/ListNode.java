@@ -1,0 +1,31 @@
+package seo.dale.algorithm.list.singly5;
+
+/**
+ * @author 서대영(DAEYOUNG SEO)/Onestore/SKP
+ */
+public class ListNode<E> {
+
+	private E data;
+	private ListNode next;
+
+	public ListNode(E data) {
+		this.data = data;
+	}
+
+	public ListNode(E data, ListNode prev) {
+		this.data = data;
+		this.next = prev.next;
+		prev.next = this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		ListNode node = this;
+		while (node != null) {
+			builder.append(node.data).append("->");
+			node = node.next;
+		}
+		return builder.toString();
+	}
+}
