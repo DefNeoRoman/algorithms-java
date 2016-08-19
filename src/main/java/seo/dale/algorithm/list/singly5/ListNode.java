@@ -18,6 +18,18 @@ public class ListNode<E> {
 		prev.next = this;
 	}
 
+	public E getData() {
+		return data;
+	}
+
+	public ListNode getNext() {
+		return next;
+	}
+
+	public void setNext(ListNode next) {
+		this.next = next;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -26,6 +38,7 @@ public class ListNode<E> {
 			builder.append(node.data).append("->");
 			node = node.next;
 		}
+		builder.setLength(builder.length() - 2);
 		return builder.toString();
 	}
 }
