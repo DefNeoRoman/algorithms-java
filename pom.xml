@@ -5,12 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>seo.dale</groupId>
-    <artifactId>dale-algorithm</artifactId>
-    <version>0.0.1-SNAPSHOTT</version>
+    <artifactId>algorithms</artifactId>
+    <version>1.0-SNAPSHOTT</version>
     <packaging>jar</packaging>
-
-    <name>dale-algorithm</name>
-    <description>Dale Algorithm</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
