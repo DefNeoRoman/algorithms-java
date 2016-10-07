@@ -3,28 +3,7 @@ package seo.dale.algorithm.dynamic.companyInvestment;
 import java.util.Scanner;
 
 /**
-
-http://comganet.github.io/dp/2016/06/03/dp-1013
-
-[ IN ]
-4 3
-1 4 1 5
-2 8 5 10
-3 12 11 15
-4 16 15 20
-[ OUT ]
-20
-0 0 4
-
-[ IN ]
-4 3
-1    2   3   4
-2    5   9   4
-3   15   4  12
-4    6   4   7
-[ OUT ]
-19
-3 0 1
+ * http://comganet.github.io/dp/2016/06/03/dp-1013
  */
 public class CompanyInvestment {
 
