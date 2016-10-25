@@ -3,37 +3,30 @@ package CtCI.Ch02_LinkedLists.Q2_04_Partition;
 import CtCI.CtCILibrary.LinkedListNode;
 
 /**
- * https://github.com/careercup/ctci/blob/master/java/Chapter%202/Question2_4/Question.java
- * Use 2 extra list
+ * https://github.com/careercup/ctci/blob/master/java/Chapter%202/Question2_4/QuestionC.java
+ * Better space complexity
  */
-public class Partition {
+public class Partition2 {
 
 	public static LinkedListNode partition(LinkedListNode node, int pivot) {
-		LinkedListNode lessHead = new LinkedListNode();
-		LinkedListNode moreHead = new LinkedListNode();
-
-		LinkedListNode lessTail = lessHead;
-		LinkedListNode moreTail = moreHead;
+		LinkedListNode head = node;
+		LinkedListNode tail = node;
 
 		while (node != null) {
+			LinkedListNode next = node.next; // important! otherwise infinite loop
 			if (node.data < pivot) {
-				lessTail.next = node;
-				lessTail = lessTail.next;
+				// insert at head
+				node.next = head;
+				head = node;
 			} else {
-				moreTail.next = node;
-				moreTail = moreTail.next;
+				// insert at tail
+				tail.next = node;
+				tail = node;
 			}
-			node = node.next;
+			node = next;
 		}
-
-		lessTail.next = null;
-		moreTail.next = null;
-
-		System.out.println(lessHead.printForward());
-		System.out.println(moreHead.printForward());
-
-		lessTail.next = moreHead.next;
-		return lessHead.next;
+		tail.next = null;
+		return head;
 	}
 
 	public static void main(String[] args) {
