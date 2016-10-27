@@ -8,20 +8,40 @@ import java.util.Stack;
 public class Tower {
 
 	private int index;
-	private Stack<Integer> stack;
+	private Stack<Integer> disks;
 
 	public Tower(int index) {
 		this.index = index;
-		stack = new Stack<>();
+		disks = new Stack<>();
 	}
 
 	public void add(int d) {
-		
+		if (disks.isEmpty() || disks.peek() > d) {
+			disks.push(d);
+		} else {
+			System.out.println("Error placing disk " + d);
+		}
 	}
 
-	public void moveDisks(int n, Tower tower, Tower tower1) {
+	/**
+	 * @param n the number of disks to move
+	 * @param destination the tower to be used as the destination
+	 * @param buffer the tower to be used as the buffer
+	 */
+	public void moveDisks(int n, Tower destination, Tower buffer) {
+		if (n == 0) return;
+		moveDisks(n-1, buffer, destination);
+		moveTopTo(destination);
+		buffer.moveDisks(n-1, destination, this);
+	}
+
+	public void moveTopTo(Tower t) {
+		int top = disks.pop();
+		// System.out.printf("T[%s] --(%s)--> T[%s]%n", this.index, top, t.index);
+		t.add(top);
 	}
 
 	public void print() {
+		System.out.println("Contents of Tower " + index + ": " + disks.toString());
 	}
 }

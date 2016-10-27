@@ -18,7 +18,13 @@ public class TowersOfHanoi {
 
 		// Copy and paste output into a .XML file and open it with internet explorer.
 		towers[0].print();
+		towers[1].print();
+		towers[2].print();
+
 		towers[0].moveDisks(n, towers[2], towers[1]);
+
+		towers[0].print();
+		towers[1].print();
 		towers[2].print();
 	}
 
