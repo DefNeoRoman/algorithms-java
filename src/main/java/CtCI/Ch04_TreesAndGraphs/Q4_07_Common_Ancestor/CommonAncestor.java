@@ -18,11 +18,11 @@ public class CommonAncestor {
 
 	/**
 	 * If tree nodes have the reference to their parents,
-	 * visit one's parents upwards until you can find a parent which is also a parent of the other.
+	 * visit p's ancestors upwards until you can find one which is also a parent of q.
 	 */
 	public static TreeNode commonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 		while (p != null) {
-			if (isParentAndChild(p, q)){
+			if (isAlsoAncestorOf(p, q)){
 				return p;
 			}
 			p = p.parent;
@@ -30,7 +30,7 @@ public class CommonAncestor {
 		return root;
 	}
 
-	private static boolean isParentAndChild(TreeNode p, TreeNode q) {
+	private static boolean isAlsoAncestorOf(TreeNode p, TreeNode q) {
 		while (q != null) {
 			if (p == q) {
 				return true;
