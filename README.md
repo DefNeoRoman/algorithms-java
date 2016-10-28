@@ -9,3 +9,4 @@ https://github.com/DaleSeo/algorithms-python
 - https://github.com/careercup/ctci/blob/master/java/Chapter%201/Question1_5/Question.java
 - https://github.com/careercup/ctci/blob/master/java/Chapter%202/Question2_3/Question.java
 - https://github.com/careercup/ctci/blob/master/java/Chapter%202/Question2_4/Question.java
+- https://github.com/careercup/ctci/blob/master/java/Chapter%204/Question4_7/Question.java
