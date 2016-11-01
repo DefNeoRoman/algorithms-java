@@ -3,7 +3,7 @@ package CtCI.Ch04_TreesAndGraphs.Q4_07_Common_Ancestor;
 import CtCI.CtCILibrary.TreeNode;
 
 /**
- * https://github.com/careercup/ctci/blob/master/java/Chapter%204/Question4_7/Question.java
+ * https://github.com/careercup/ctci/blob/master/java/Chapter%204/Question4_7/QuestionB.java
  */
 public class CommonAncestor {
 
@@ -17,7 +17,7 @@ public class CommonAncestor {
 	}
 
 	/**
-	 * If tree nodes have the reference to their parents,
+	 * When tree nodes have the reference to their parents,
 	 * visit p's ancestors upwards until you can find one which is also a parent of q.
 	 */
 	public static TreeNode commonAncestor(TreeNode root, TreeNode p, TreeNode q) {
