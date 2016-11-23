@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>seo.dale</groupId>
-    <artifactId>algorithms</artifactId>
+    <artifactId>algorithms-java</artifactId>
     <version>1.0-SNAPSHOTT</version>
     <packaging>jar</packaging>
 
