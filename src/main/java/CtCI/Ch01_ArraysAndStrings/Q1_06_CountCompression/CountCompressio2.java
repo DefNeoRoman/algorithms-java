@@ -1,4 +1,4 @@
-package CtCI.Ch01_ArraysAndStrings.Q1_05_CountCompression;
+package CtCI.Ch01_ArraysAndStrings.Q1_06_CountCompression;
 
 /**
  * https://github.com/careercup/ctci/blob/master/java/Chapter%201/Question1_5/Question.java

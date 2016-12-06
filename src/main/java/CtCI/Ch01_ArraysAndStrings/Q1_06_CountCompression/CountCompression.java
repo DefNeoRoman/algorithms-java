@@ -1,4 +1,4 @@
-package CtCI.Ch01_ArraysAndStrings.Q1_05_CountCompression;
+package CtCI.Ch01_ArraysAndStrings.Q1_06_CountCompression;
 
 public class CountCompression {
 
