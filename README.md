@@ -9,6 +9,7 @@ https://github.com/DaleSeo/algorithms-python
 - https://github.com/careercup/CtCI-6th-Edition/blob/master/Java/Ch%2001.%20Arrays%20and%20Strings/Q1_05_One_Away
 - https://github.com/careercup/CtCI-6th-Edition/blob/master/Java/Ch%2001.%20Arrays%20and%20Strings/Q1_07_Rotate_Matrix
 - https://github.com/careercup/CtCI-6th-Edition/blob/master/Java/Ch%2001.%20Arrays%20and%20Strings/Q1_08_Zero_Matrix
+- https://github.com/careercup/CtCI-6th-Edition/blob/master/Java/Ch%2001.%20Arrays%20and%20Strings/Q1_09_String_Rotation
 
 ## Cracking The Coding Interview (5th Edition)
 - https://github.com/careercup/ctci/blob/master/java/Chapter%201/Question1_4/Question.java
