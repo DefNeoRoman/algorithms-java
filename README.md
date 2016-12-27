@@ -15,6 +15,7 @@ https://github.com/DaleSeo/algorithms-python
 - https://github.com/careercup/CtCI-6th-Edition/blob/master/Java/Ch%2002.%20Linked%20Lists/Q2_07_Intersection
 - https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2002.%20Linked%20Lists/Q2_08_Loop_Detection
 - https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2003.%20Stacks%20and%20Queues/Q3_04_Queue_via_Stacks
+- https://github.com/careercup/CtCI-6th-Edition/blob/master/Java/Ch%2003.%20Stacks%20and%20Queues/Q3_05_Sort_Stack
 
 ## Cracking The Coding Interview (5th Edition)
 - https://github.com/careercup/ctci/blob/master/java/Chapter%201/Question1_4/Question.java
