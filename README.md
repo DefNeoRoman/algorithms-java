@@ -19,6 +19,7 @@ https://github.com/DaleSeo/algorithms-python
 - https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2003.%20Stacks%20and%20Queues/Q3_06_Animal_Shelter
 - https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2004.%20Trees%20and%20Graphs/Q4_02_Minimal_Tree
 - https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2004.%20Trees%20and%20Graphs/Q4_05_Validate_BST
+- https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2004.%20Trees%20and%20Graphs/Q4_06_Successor
 
 ## Cracking The Coding Interview (5th Edition)
 - https://github.com/careercup/ctci/blob/master/java/Chapter%201/Question1_4/Question.java
