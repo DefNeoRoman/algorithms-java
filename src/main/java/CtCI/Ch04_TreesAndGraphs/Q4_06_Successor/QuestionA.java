@@ -11,17 +11,17 @@ public class QuestionA {
 		if (n == null) return null;
 
 		if (n.right != null) {
-			TreeNode tmp = n.right;
-			while (tmp.left != null) {
-				tmp = tmp.left;
+			TreeNode curr = n.right;
+			while (curr.left != null) {
+				curr = curr.left;
 			}
-			return tmp;
+			return curr;
 		} else {
-			if (n.parent.left == n) {
-				return n.parent;
-			} else {
-				return n.parent.parent;
+			TreeNode curr = n;
+			while (curr.parent != null && curr.parent.right == curr) {
+				curr = curr.parent;
 			}
+			return curr.parent;
 		}
 	}
 
