@@ -40,10 +40,6 @@ public class TreeNode {
 		size++;
 	}
 
-	public int size() {
-		return size;
-	}
-
 	public TreeNode getRandomNode() {
 		int index = random.nextInt(size);
 		return getIthNode(index);
