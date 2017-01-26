@@ -1,4 +1,4 @@
-package CtCI.Ch05_BitManipulation;
+package CtCI.Ch05_BitManipulation.Q5_06_Conversion;
 
 import CtCI.CtCILibrary.AssortedMethods;
 import org.junit.Test;
@@ -6,16 +6,16 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * https://github.com/careercup/CtCI-6th-Edition/blob/master/Java/Ch%2005.%20Bit%20Manipulation/Q5_06_Conversion/QuestionB.java
+ * https://github.com/careercup/CtCI-6th-Edition/blob/master/Java/Ch%2005.%20Bit%20Manipulation/Q5_06_Conversion/QuestionA.java
  */
-public class QuestionB {
+public class QuestionA {
 
 	public static int bitSwapRequired(int a, int b) {
 		int xor = a ^ b;
 		int cnt = 0;
 		while (xor != 0) {
-			cnt ++;
-			xor &= xor - 1; // clear the least significant bit (1)
+			cnt += xor & 1;
+			xor >>>= 1;
 		}
 		return cnt;
 	}
