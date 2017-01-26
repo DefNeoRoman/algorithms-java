@@ -24,6 +24,7 @@ https://github.com/DaleSeo/algorithms-python
 - https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2004.%20Trees%20and%20Graphs/Q4_11_Random_Node
 - https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2004.%20Trees%20and%20Graphs/Q4_12_Paths_with_Sum
 - https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2005.%20Bit%20Manipulation/Q5_03_Flip_Bit_to_Win
+- https://github.com/careercup/CtCI-6th-Edition/tree/master/Java/Ch%2005.%20Bit%20Manipulation/Q5_06_Conversion
 
 ## Cracking The Coding Interview (5th Edition)
 - https://github.com/careercup/ctci/blob/master/java/Chapter%201/Question1_4/Question.java
