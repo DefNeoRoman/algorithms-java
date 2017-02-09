@@ -1,4 +1,4 @@
-package seo.dale.algorithm.list.singly6;
+package seo.dale.algorithm.list.ctci;
 
 /**
  * https://youtu.be/njTh_OwMljA

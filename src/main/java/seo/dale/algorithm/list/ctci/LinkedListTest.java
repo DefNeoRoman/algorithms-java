@@ -1,4 +1,4 @@
-package seo.dale.algorithm.list.singly6;
+package seo.dale.algorithm.list.ctci;
 
 import org.junit.Before;
 import org.junit.Test;
