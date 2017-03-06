@@ -1,4 +1,4 @@
-package codility.OptimizingFarthestEqual;
+package codility.optimizing_farthest_equal;
 
 import org.junit.Test;
 
@@ -7,6 +7,11 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * https://codility.com/tasks/optimizing_farthest_equal/
+ * https://codility.com/c/run/tryP7RCMB-KG2
+ * https://codility.com/tickets/tryP7RCMB-KG2/
+ */
 public class Solution {
 
 	@Test

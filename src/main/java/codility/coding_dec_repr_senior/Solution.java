@@ -1,4 +1,4 @@
-package codility.CodingDecReprSenior;
+package codility.coding_dec_repr_senior;
 
 import org.junit.Test;
 
@@ -7,6 +7,11 @@ import java.util.Queue;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * https://codility.com/tasks/coding_dec_repr_senior/
+ * https://codility.com/c/run/tryVCA7HE-RSR
+ * https://codility.com/tickets/tryVCA7HE-RSR/
+ */
 public class Solution {
 
 	@Test
