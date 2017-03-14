@@ -21,16 +21,16 @@ public class Solution {
 		}
 		int l = 0;
 		int r = N - 1;
-		while (l <= r) {
+		while (l < r) {
 			int m = (l + r) / 2;
-			if (A[m] == X) {
-				return m;
-			}
-			if (A[m] > X) {
-				r = m - 1;
-			} else {
+			if (A[m] < X) {
 				l = m + 1;
+			} else {
+				r = m;
 			}
+		}
+		if (A[l] == X) {
+			return l;
 		}
 		return -1;
 	}
