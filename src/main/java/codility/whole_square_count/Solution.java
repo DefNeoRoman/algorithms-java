@@ -2,7 +2,9 @@ package codility.whole_square_count;
 
 /**
  * https://codility.com/tasks/whole_square_count/
+ * https://codility.com/tasks/coding_whole_square_count/
  * https://codility.com/tickets/try8V9WCX-TVN/
+ *
  */
 public class Solution {
 
