@@ -11,6 +11,7 @@ import static org.junit.Assert.assertEquals;
  * https://codility.com/tasks/dec_repr_senior/
  * https://codility.com/tasks/coding_dec_repr_senior/
  * https://codility.com/tickets/tryTQKS9M-QW2/
+ * Using a queue
  */
 public class Solution {
 

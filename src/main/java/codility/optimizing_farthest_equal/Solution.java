@@ -9,8 +9,8 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * https://codility.com/tasks/optimizing_farthest_equal/
- * https://codility.com/c/run/tryP7RCMB-KG2
  * https://codility.com/tickets/tryP7RCMB-KG2/
+ * O(n) time & space: Using hash table
  */
 public class Solution {
 
@@ -28,17 +28,17 @@ public class Solution {
 	}
 
 	public int solution(int[] A) {
-		Map<Integer, int[]> map = new HashMap<>();
+		Map<Integer, int[]> indexPairs = new HashMap<>();
 		for (int i = 0; i < A.length; i++) {
-			if (!map.containsKey(A[i])) {
-				map.put(A[i], new int[]{i, -1});
+			if (!indexPairs.containsKey(A[i])) {
+				indexPairs.put(A[i], new int[]{i, -1});
 			} else {
-				int[] arr = map.get(A[i]);
+				int[] arr = indexPairs.get(A[i]);
 				arr[1] = i;
 			}
 		}
 		int result = 0;
-		for (int[] arr : map.values()) {
+		for (int[] arr : indexPairs.values()) {
 			result = Math.max(arr[1] - arr[0], result);
 		}
 		return result;
