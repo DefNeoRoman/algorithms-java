@@ -1,7 +1,7 @@
 package codility.castle_building;
 
 /**
- * https://codility.com/tasks/castle_building/
+	 * https://codility.com/tasks/castle_building/
  * https://codility.com/tickets/try83VCQK-ET9/
  */
 public class Solution {
@@ -19,7 +19,7 @@ public class Solution {
 		int cnt = 1;
 		int i = 1;
 
-		int trend = 0; // 0: flat, 1: increasing, -1: decreasing
+		int trend = 0; // 0: constant, 1: increasing, -1: decreasing
 
 		while (i < A.length) {
 			if (trend != 1 && A[i - 1] < A[i]) {
