@@ -35,7 +35,7 @@ public class Solution {
 		for (int r = 0; r < A.length; r++) {
 			for (int c = 0; c < A[r].length; c++) {
 //				System.out.printf("(%d, %d)%n", r, c);
-				if (quilibrium(rowSums, colSums, r, c)) {
+				if (equilibrium(rowSums, colSums, r, c)) {
 					cnt++;
 				}
 			}
@@ -63,7 +63,7 @@ public class Solution {
 		return colSums;
 	}
 
-	private boolean quilibrium(long[] rowSums, long[] colSums, int r, int  c) {
+	private boolean equilibrium(long[] rowSums, long[] colSums, int r, int  c) {
 		long topSum = Arrays.stream(Arrays.copyOfRange(rowSums, 0, r)).sum();
 		long bottomSum = Arrays.stream(Arrays.copyOfRange(rowSums, r + 1, rowSums.length)).sum();
 
