@@ -2,7 +2,6 @@ package codility.tree_visibility;
 
 /**
  * https://codility.com/tasks/tree_visibility/
- * https://codility.com/c/run/tryDR7AH7-UKU
  * https://codility.com/tickets/tryDR7AH7-UKU/
  */
 public class Solution {
@@ -16,8 +15,8 @@ public class Solution {
 		}
 		int count = 0;
 		if (node.x >= max) {
+			count++;
 			max = node.x;
-			count += 1;
 		}
 		count += countVisibleNodes(node.l, max) + countVisibleNodes(node.r, max);
 		return count;
