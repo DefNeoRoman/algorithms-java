@@ -11,10 +11,10 @@ public class Solution {
 	public int solution(Tree T) {
 		Set<Integer> set = new HashSet<>();
 		set.add(T.x);
-		return help(T, 1, set);
+		return maxDistinct(T, 1, set);
 	}
 
-	public int help(Tree T, int current, Set<Integer> set) {
+	public int maxDistinct(Tree T, int current, Set<Integer> set) {
 		if (T == null) {
 			return current;
 		}
@@ -22,7 +22,7 @@ public class Solution {
 			set.add(T.x);
 			current++;
 		}
-		return Math.max(help(T.l, current, new HashSet<>(set)), help(T.r, current, new HashSet<>(set)));
+		return Math.max(maxDistinct(T.l, current, new HashSet<>(set)), maxDistinct(T.r, current, new HashSet<>(set)));
 	}
 
 }
