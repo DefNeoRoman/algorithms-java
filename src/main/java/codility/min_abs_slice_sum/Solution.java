@@ -10,8 +10,8 @@ public class Solution {
 	public static void main(String[] args) {
 		Solution s = new Solution();
 
-//		System.out.println(s.solution(new int[]{2, -4, 6, -3, 9}));
-		System.out.println(s.solution(new int[]{1}));
+		System.out.println(s.solution(new int[]{2, -4, 6, -3, 9})); // 1
+		System.out.println(s.solution(new int[]{1})); // 1
 	}
 
 	public int solution(int[] A) {
