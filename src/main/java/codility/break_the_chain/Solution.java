@@ -6,25 +6,33 @@ import java.util.PriorityQueue;
 /**
  * https://codility.com/tasks/break_the_chain/
  * https://codility.com/tickets/tryEWG5VU-FXZ/
+ * O(n) time & space
  */
 public class Solution {
 	public int solution(int[] A) {
-		PriorityQueue<Link> maxHeap = new PriorityQueue<>(3, Comparator.reverseOrder());
-		for (int i = 1; i < 4; i++) {
-			maxHeap.offer(new Link(i, A[i]));
-		}
-		for (int i = 4; i < A.length - 1; i++) {
+		PriorityQueue<Link> maxHeap = new PriorityQueue<>(4, Comparator.reverseOrder());
+		for (int i = 1; i < A.length - 1; i++) {
+			if (i < 5) {
+				maxHeap.offer(new Link(i, A[i]));
+				continue;
+			}
 			if (A[i] < maxHeap.peek().value) {
 				maxHeap.poll();
 				maxHeap.offer(new Link(i, A[i]));
 			}
 		}
-		Link high = maxHeap.poll(), mid = maxHeap.poll(), low = maxHeap.poll();
-		if (mid.idx - low.idx == 1) {
-			return high.value + low.value;
-		} else {
-			return mid.value + low.value;
+
+		Link[] links = maxHeap.toArray(new Link[maxHeap.size()]);
+		int minSum = Integer.MAX_VALUE;
+		for (int i = 0; i < links.length - 1; i++) {
+			for (int j = i + 1; j < links.length; j++) {
+				if (Math.abs(links[i].idx - links[j].idx) == 1) {
+					continue;
+				}
+				minSum = Math.min(minSum, links[i].value + links[j].value);
+			}
 		}
+		return minSum;
 	}
 
 	static class Link implements Comparable<Link> {
@@ -51,20 +59,11 @@ public class Solution {
 	}
 
 	public static void main(String[] args) {
-//		PriorityQueue<Link> maxHeap = new PriorityQueue<>(3, Comparator.reverseOrder());
-//		maxHeap.offer(new Link(0, 5));
-//		maxHeap.offer(new Link(1, 2));
-//		maxHeap.offer(new Link(2, 4));
-//		maxHeap.offer(new Link(3, 6));
-//		maxHeap.offer(new Link(4, 3));
-//		maxHeap.offer(new Link(5, 7));
-//
-//		while (!maxHeap.isEmpty()) {
-//			System.out.println(maxHeap.poll());
-//		}
 		Solution s = new Solution();
-		int[] A = {5, 2, 4, 6, 3, 7};
-		System.out.println(s.solution(A));
+		System.out.println(s.solution(new int[]{5, 2, 4, 6, 3, 7})); // 5
+		System.out.println(s.solution(new int[]{9, 9, 8, 3, 2, 4, 8})); // 7
+		System.out.println(s.solution(new int[]{13, 10, 8, 1, 4, 11, 8})); // 11
+		System.out.println(s.solution(new int[]{1, 1, 1, 1, 1})); // 2
 	}
 
 }
