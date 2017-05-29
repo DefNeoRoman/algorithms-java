@@ -2,8 +2,6 @@ package codility.holiday_advisor;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -16,26 +14,27 @@ import java.util.stream.IntStream;
 public class Solution {
 
 	public int solution(int[] A) {
-		Set<Integer> locations = IntStream.of(A).boxed().collect(Collectors.toSet());
-		Map<Integer, Integer> counter = new HashMap<>();
+		long distinct = IntStream.of(A).distinct().count();
+
+		Map<Integer, Integer> counters = new HashMap<>();
 
 		int shortest = A.length;
 		int low = 0;
 		for (int high = 0; high < A.length; high++) {
-			if (counter.size() < locations.size()) {
-				counter.put(A[high], counter.getOrDefault(A[high], 0) + 1);
+			if (counters.size() < distinct) {
+				counters.put(A[high], counters.getOrDefault(A[high], 0) + 1);
 			}
 
-			while (counter.size() == locations.size()) {
-				counter.put(A[low], counter.get(A[low]) - 1);
-				if (counter.get(A[low]) == 0) {
-					counter.remove(A[low]);
+			while (counters.size() == distinct) {
+				counters.put(A[low], counters.get(A[low]) - 1);
+				if (counters.get(A[low]) == 0) {
 					shortest = Math.min(shortest, high - low + 1);
-				} else {
-					low++;
+					counters.remove(A[low]);
 				}
+				low++;
 			}
 		}
+
 		return shortest;
 	}
 
@@ -44,8 +43,11 @@ public class Solution {
 		System.out.println(s.solution(new int[]{7})); // 1
 		System.out.println(s.solution(new int[]{7, 3})); // 2
 		System.out.println(s.solution(new int[]{7, 3, 4, 1})); // 4
+		System.out.println(s.solution(new int[]{7, 3, 7, 3, 1, 3, 4})); // 5
+		System.out.println(s.solution(new int[]{7, 3, 1, 3, 4, 7, 3})); // 4
 		System.out.println(s.solution(new int[]{7, 3, 7, 3, 1, 3, 4, 1})); // 5
 		System.out.println(s.solution(new int[]{7, 3, 4, 1, 7, 3, 7, 3, 1, 3, 4, 1})); // 4
+		System.out.println(s.solution(new int[]{7, 3, 7, 3, 1, 3, 3, 4, 1, 7, 3, 7, 3, 1, 3, 4, 1})); // 4
 	}
 
 }
